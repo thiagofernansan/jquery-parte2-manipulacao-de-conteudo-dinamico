@@ -82,3 +82,20 @@ input[type=button] {
 	margin: 2em 0;
 }
 
+.recuperado{
+    background:#FE0;
+}
+
+.propaganda td {
+    background: #9F0;
+    padding: 1em 0.5em;
+    text-align: center;
+
+    color: #333;
+    font-style: italic;
+}
+
+.hovering {
+	background: #ccc;
+}
+
