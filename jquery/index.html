@@ -1,4 +1,5 @@
 <html>
+<meta charset="UTF-8">
 <head>
 	<link rel="stylesheet" type="text/css" href="carrinho.css">
 </head>
@@ -20,7 +21,7 @@
 					<td><img src="imagens/tablet.jpg"></td>
 					<td>Tablet miPad 18</td>
 					<td class="item-quantidade">1</td>
-					<td>499.99</td>
+					<td class="qtd-unitario">499.99</td>
 					<td class="item-total">499.99</td>
 					<td><a href="" class="remove-item">(Remover)</td>
 				</tr>
@@ -28,7 +29,7 @@
 					<td><img src="imagens/telefone.png"></td>
 					<td>Telefone miPhone 18</td>
 					<td class="item-quantidade">2</td>
-					<td>199.99</td>
+					<td class="qtd-unitario">199.99</td>
 					<td class="item-total">399.98</td>
 					<td><a href="" class="remove-item">(Remover)</td>
 				</tr>
@@ -36,7 +37,7 @@
 					<td><img src="imagens/sapato.jpg"></td>
 					<td>Sapato</td>
 					<td class="item-quantidade">1</td>
-					<td>99.99</td>
+					<td class="qtd-unitario">99.99</td>
 					<td class="item-total">99.99</td>
 					<td><a href="" class="remove-item">(Remover)</td>
 				</tr>
@@ -44,7 +45,7 @@
 					<td><img src="imagens/monitor.jpg"></td>
 					<td>Monitor Sam 21</td>
 					<td class="item-quantidade">1</td>
-					<td>299.00</td>
+					<td class="qtd-unitario">299.00</td>
 					<td class="item-total">299.00</td>
 					<td><a href="" class="remove-item">(Remover)</td>
 				</tr>
@@ -52,7 +53,7 @@
 					<td><img src="imagens/teclado.jpg"></td>
 					<td>Teclado com fio preto </td>
 					<td class="item-quantidade">1</td>
-					<td>100.00</td>
+					<td class="qtd-unitario">100.00</td>
 					<td class="item-total">100.00</td>
 					<td><a href="" class="remove-item">(Remover)</td>
 				</tr>
@@ -60,7 +61,7 @@
 					<td><img src="imagens/mouse.jpg"></td>
 					<td>Mouse wireless</td>
 					<td class="item-quantidade">1</td>
-					<td>199.00</td>
+					<td class="qtd-unitario">199.00</td>
 					<td class="item-total">199.00</td>
 					<td><a href="" class="remove-item">(Remover)</td>
 				</tr>
@@ -68,53 +69,63 @@
 					<td><img src="imagens/camiseta.jpg"></td>
 					<td>Camiseta G</td>
 					<td class="item-quantidade">1</td>
-					<td>25.00</td>
+					<td class="qtd-unitario">25.00</td>
 					<td class="item-total">25.00</td>
 					<td><a href="" class="remove-item">(Remover)</a></td>
 				</tr>
 			</tbody>
 		</table>
 	
-	</div>
-	<div>
-		Valor total: <span id="valor-total">0</span>
-		<br/>
-		Quantidade de itens distintos:
-		<span id="quantidade-de-itens">0</span>
+		<div>
+			Valor total: <span class="valor-total">0</span>
+			<br/>
+			Quantidade de itens distintos:
+			<span class="quantidade-de-itens">0</span>
 
+		</div>
+		<div>
+	        <input type="button" value="Undo" class="undo">
+		</div>
 	</div>
+
+	<div class="carrinho">
+		<h2>Carrinho entrega em Vitória</h2>
+		<table>
+			<thead>
+				<tr>
+					<td></td>
+					<td>Nome</td>
+					<td>Quantidade</td>
+					<td>Valor</td>
+					<td>Total</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="imagens/camiseta.jpg"></td>
+					<td>Camiseta G</td>
+					<td class="item-quantidade">1</td>
+					<td class="qtd-unitario">25.00</td>
+					<td class="item-total">25.00</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div>
+			Valor total: <span class="valor-total">0</span>
+			<br/>
+			Quantidade de itens distintos:
+			<span class="quantidade-de-itens">0</span>
+
+		</div>
+		<div>
+	        <input type="button" value="Undo" class="undo">
+		</div>
+	</div>
+
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
-	<script type="text/javascript">
-		var aposInicializado = function () {
-			var items = $(".item-total");
-			var total = 0;	
-			for (var i=0; items.length > i; i++) {
-				var valor = parseFloat($(items[i]).text());
-				total += valor;
-			};
-			$("#valor-total").text(total);
-			var qtdItens = $(".item-quantidade");
-			var qtdTotalItens = 0;
-			for (var i = 0; i < qtdItens.length; i++) {
-				var valor = parseFloat($(qtdItens[i]).text());
-				qtdTotalItens += valor;
+	<script src="carrinho.js"></script>
 
-			};
-			$("#quantidade-de-itens").text(qtdTotalItens);
-		}
-
-		$(".remove-item").click(function(event) {
-
-			var qtdItens = $(".item-quantidade");
-
-
-			event.preventDefault();
-			var self = $(this);
-			alert(self.parent());
-			var atual = parseFloat($("#quantidade-de-itens").text());
-			$("#quantidade-de-itens").text(--atual);
-		});
-		$(aposInicializado);
-	</script>
 </body>
 </html>
