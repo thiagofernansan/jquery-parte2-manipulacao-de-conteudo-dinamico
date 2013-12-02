@@ -66,12 +66,22 @@ var umaPropaganda = function() {
 }
 
 var daDestaque = function() {
-	$(this).addClass("hovering");
+	var self = $(this);
+	self.addClass("hovering");
+	self.find(".remove-item").fadeIn();
 
 }
 
 var tiraDestaque = function() {
-	$(this).removeClass("hovering");
+	var self = $(this);
+	self.removeClass("hovering");
+	self.find(".remove-item").fadeOut();
+}
+
+var alteraPropagandas = function(event) {
+	event.preventDefault();
+	$(".propaganda").fadeToggle();
+	$(".altera-propagandas").toggle();
 }
 
 var aposInicializado = function () {
@@ -86,9 +96,9 @@ var aposInicializado = function () {
 	atualizaDados();
 
 
-	$("tr").hover(daDestaque, tiraDestaque);
+	$(".carrinho tbody tr").hover(daDestaque, tiraDestaque);
 
-
+	$(".altera-propagandas").click(alteraPropagandas);
 
 }
 $(aposInicializado);
